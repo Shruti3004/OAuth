@@ -1,20 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Posts from "./components/Posts/Posts";
-import Form from "./components/Form/Form";
-import { useDispatch } from "react-redux";
-import { getPosts } from "./actions/posts";
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Auth from "./components/Auth/Auth";
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // }, [dispatch]);
   return (
     <div className="App">
-      <Posts />
-      <Form />
+      <Navbar />
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/auth' component={Auth}/>
+      </Switch>      
     </div>
   );
 }
